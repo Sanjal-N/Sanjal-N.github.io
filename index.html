@@ -66,6 +66,137 @@
             background: #10B981; /* Emerald-500 */
         }
 
+  /* --- Green Theme Variables --- */
+  :root {
+    --primary-green: #4CAF50; /* Main theme green */
+    --dark-green: #388E3C;    /* Darker green for text/hover */
+    --light-green-bg: #e8f5e9; /* Light green for tags */
+    --card-bg: #ffffff;         /* Card background */
+    --text-dark: #333;          /* Dark text */
+    --text-light: #666;         /* Lighter paragraph text */
+    --shadow-light: rgba(0, 0, 0, 0.1);
+    --shadow-heavy: rgba(0, 0, 0, 0.15);
+  }
+
+  /* --- Styles for the page background (optional, but looks nice) --- */
+  body {
+    background-color: #f4f7f6; /* A very light, slightly green background */
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+  }
+
+  /* --- Projects Grid Container --- */
+  .projects-container {
+    display: grid;
+    /* Creates responsive columns: 
+       - Tries to fit as many 340px cards as possible
+       - On small screens, stretches to 100% width (1fr)
+    */
+    grid-template-columns: repeat(auto-fit, minmax(340px, 1fr));
+    gap: 25px; /* Space between cards */
+    padding: 25px;
+    max-width: 1200px;
+    margin: 0 auto; /* Center the container */
+  }
+
+  /* --- The Project Card --- */
+  .project-card {
+    background-color: var(--card-bg);
+    border-radius: 12px; /* Rounded corners */
+    box-shadow: 0 4px 12px var(--shadow-light); /* Soft shadow */
+    padding: 24px;
+    
+    /* Green accent line on the left */
+    border-left: 5px solid var(--primary-green); 
+    
+    /* Animation setup */
+    transition: 
+      transform 0.3s cubic-bezier(0.25, 0.8, 0.25, 1),
+      box-shadow 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
+  }
+
+  /* --- Animation: "Lift" card on hover --- */
+  .project-card:hover {
+    transform: translateY(-8px); /* Lifts the card */
+    box-shadow: 0 10px 20px var(--shadow-heavy); /* Stronger shadow */
+  }
+
+  /* --- Card Content Styling --- */
+  .project-card h3 {
+    margin-top: 0;
+    color: var(--dark-green); /* Dark green title */
+  }
+
+  .project-card p {
+    color: var(--text-light);
+    line-height: 1.6;
+  }
+
+  /* --- Tech Stack "Pills" --- */
+  .tech-stack {
+    display: flex;
+    flex-wrap: wrap;
+    list-style: none;
+    padding: 0;
+    margin: 15px 0;
+  }
+
+  .tech-stack li {
+    background-color: var(--light-green-bg);
+    color: var(--dark-green);
+    padding: 6px 14px;
+    margin: 5px 5px 5px 0; /* Space between pills */
+    border-radius: 16px; /* Pill shape */
+    font-size: 0.9em;
+    font-weight: 500;
+  }
+
+  /* --- SDG Link Styling --- */
+  .sdg-link {
+    font-size: 0.9em;
+    font-style: italic;
+    color: var(--text-light);
+    margin-top: 15px;
+  }
+
+  /* --- Project Links (Buttons) --- */
+  .project-links {
+    margin-top: 20px;
+  }
+
+  .project-links a {
+    text-decoration: none;
+    padding: 10px 18px;
+    border-radius: 8px;
+    margin-right: 10px;
+    font-weight: 600;
+    transition: all 0.2s ease-in-out;
+    display: inline-block;
+    margin-bottom: 5px; /* For stacking on small screens */
+  }
+
+  /* "View Code" Button (Outlined) */
+  .project-links a:first-of-type {
+    border: 1px solid var(--primary-green);
+    color: var(--primary-green);
+  }
+
+  .project-links a:first-of-type:hover {
+    background-color: var(--light-green-bg);
+    color: var(--dark-green);
+  }
+
+  /* "Live Demo" Button (Solid) */
+  .project-links a:last-of-type {
+    background-color: var(--primary-green);
+    color: white;
+    border: 1px solid var(--primary-green);
+  }
+
+  .project-links a:last-of-type:hover {
+    background-color: var(--dark-green);
+    border-color: var(--dark-green);
+  }
+
         /* Fading in sections */
         .fade-in {
             opacity: 0;
@@ -325,56 +456,60 @@
         </section>
 
         <!-- =========== Projects Section =========== -->
-        <div class="project-card">
-  <h3>🎬 Netflix Frontend Clone</h3>
-  <p>
-    Designed and developed a pixel-perfect, responsive replica of the Netflix homepage. This project showcases strong front-end skills in creating a modern, media-rich user interface with pure HTML, CSS, and JavaScript, focusing on UI/UX accuracy and cross-browser compatibility.
-  </p>
-  <ul class="tech-stack">
-    <li>HTML5</li>
-    <li>CSS3</li>
-    <li>JavaScript</li>
-  </ul>
-  <p class="sdg-link">🌍 Aligned with SDG 4 & 9 – Promoting digital learning and innovation.</p>
-  <div class="project-links">
-    <a href="[YOUR_GITHUB_LINK_HERE]" target="_blank" rel="noopener noreferrer">View Code</a>
-    <a href="https://sanjal-n.github.io/Netflix-Clone/" target="_blank" rel="noopener noreferrer">Live Demo</a>
+       <div class="projects-container">
+  
+  <div class="project-card">
+    <h3>🎬 Netflix Frontend Clone</h3>
+    <p>
+      Designed and developed a pixel-perfect, responsive replica of the Netflix homepage. This project showcases strong front-end skills in creating a modern, media-rich user interface with pure HTML, CSS, and JavaScript, focusing on UI/UX accuracy and cross-browser compatibility.
+    </p>
+    <ul class="tech-stack">
+      <li>HTML5</li>
+      <li>CSS3</li>
+      <li>JavaScript</li>
+    </ul>
+    <p class="sdg-link">🌍 Aligned with SDG 4 & 9 – Promoting digital learning and innovation.</p>
+    <div class="project-links">
+      <a href="[YOUR_GITHUB_LINK_HERE]" target="_blank" rel="noopener noreferrer">View Code</a>
+      <a href="[YOUR_LIVE_DEMO_LINK_HERE]" target="_blank" rel="noopener noreferrer">Live Demo</a>
+    </div>
   </div>
-</div>
 
-<div class="project-card">
-  <h3>🩸 Blood Bank Management System</h3>
-  <p>
-    Developed a full-stack web application to streamline the operations of a blood bank. This system allows for efficient management of donor information, blood inventory levels, and recipient requests, all powered by a robust MySQL database on the backend.
-  </p>
-  <ul class="tech-stack">
-    <li>HTML5</li>
-    <li>CSS3</li>
-    <li>MySQL</li>
-    <li>PHP / Java / Backend Tech</li> </ul>
-  <p class="sdg-link">🌍 Supports SDG 3 & 9 – Enhancing healthcare efficiency through technology.</p>
-  <div class="project-links">
-    <a href="https://github.com/Sanjal-N/Blood_Bank_Management.git" target="_blank" rel="noopener noreferrer">View Code</a>
-    <a href="https://Sanjal-N.github.io" target="_blank" rel="noopener noreferrer">Live Demo</a>
+  <div class="project-card">
+    <h3>🩸 Blood Bank Management System</h3>
+    <p>
+      Developed a full-stack web application to streamline the operations of a blood bank. This system allows for efficient management of donor information, blood inventory levels, and recipient requests, all powered by a robust MySQL database on the backend.
+    </p>
+    <ul class="tech-stack">
+      <li>HTML5</li>
+      <li>CSS3</li>
+      <li>MySQL</li>
+      <li>PHP</li> </ul>
+    <p class="sdg-link">🌍 Supports SDG 3 & 9 – Enhancing healthcare efficiency through technology.</p>
+    <div class="project-links">
+      <a href="https://github.com/Sanjal-N/Blood_Bank_Management.git" target="_blank" rel="noopener noreferrer">View Code</a>
+      <a href="https://Sanjal-N.github.io" target="_blank" rel="noopener noreferrer">Live Demo</a>
+    </div>
   </div>
-</div>
 
-<div class="project-card">
-  <h3>⭐ Streaming Service Score Finder</h3>
-  <p>
-    Built an intuitive browser extension that seamlessly integrates with streaming service websites. It fetches and displays real-time IMDb and Rotten Tomatoes ratings directly on the movie/show's page by making asynchronous API calls, helping users make informed viewing choices.
-  </p>
-  <ul class="tech-stack">
-    <li>JavaScript (ES6+)</li>
-    <li>REST APIs</li>
-    <li>Browser Extension APIs</li>
-    <li>HTML/CSS</li>
-  </ul>
-  <p class="sdg-link">🌍 Advances SDG 9 & 12 – Fostering innovation and informed content choices.</p>
-  <div class="project-links">
-    <a href="[YOUR_GITHUB_LINK_HERE]" target="_blank" rel="noopener noreferrer">View Code</a>
-    <a href="[YOUR_DEMO_LINK_OR_CHROME_STORE_LINK_HERE]" target="_blank" rel="noopener noreferrer">View Extension</a>
+  <div class="project-card">
+    <h3>⭐ Streaming Service Score Finder</h3>
+    <p>
+      Built an intuitive browser extension that seamlessly integrates with streaming service websites. It fetches and displays real-time IMDb and Rotten Tomatoes ratings directly on the movie/show's page by making asynchronous API calls, helping users make informed viewing choices.
+    </p>
+    <ul class="tech-stack">
+      <li>JavaScript (ES6+)</li>
+      <li>REST APIs</li>
+      <li>Browser Extension APIs</li>
+      <li>HTML/CSS</li>
+    </ul>
+    <p class="sdg-link">🌍 Advances SDG 9 & 12 – Fostering innovation and informed content choices.</p>
+    <div class="project-links">
+      <a href="[YOUR_GITHUB_LINK_HERE]" target="_blank" rel="noopener noreferrer">View Code</a>
+      <a href="[YOUR_DEMO_LINK_OR_CHROME_STORE_LINK_HERE]" target="_blank" rel="noopener noreferrer">View Extension</a>
+    </div>
   </div>
+
 </div>
 
         <!-- =========== Co-curricular & Certifications Section =========== -->
@@ -564,6 +699,7 @@
 
 </body>
 </html>
+
 
 
 
