@@ -65,7 +65,36 @@
         ::-webkit-scrollbar-thumb:hover {
             background: #10B981; /* Emerald-500 */
         }
+/* --- Projects Header Styling --- */
+.projects-header {
+  text-align: center;
+  max-width: 700px; /* Keeps the text from being too wide */
+  margin: 50px auto 40px auto; /* Adds space: top, left/right, bottom */
+  position: relative; /* Needed for the decorative line */
+}
 
+.projects-header h2 {
+  font-size: 2.2rem; /* Big, clear title */
+  color: var(--dark-green);
+  margin-bottom: 15px;
+}
+
+.projects-header p {
+  font-size: 1.1rem;
+  color: var(--text-light);
+  line-height: 1.6;
+}
+
+/* --- Decorative Green Underline --- */
+.projects-header::after {
+  content: '';
+  display: block;
+  width: 80px; /* Width of the line */
+  height: 3px; /* Thickness of the line */
+  background-color: var(--primary-green); /* Use your theme color */
+  margin: 25px auto 0; /* Space above the line, centered */
+  border-radius: 2px;
+}
   /* --- Green Theme Variables --- */
   :root {
     --primary-green: #4CAF50; /* Main theme green */
@@ -456,6 +485,10 @@
         </section>
 
         <!-- =========== Projects Section =========== -->
+        <div class="projects-header">
+  <h2>My Projects</h2>
+  <p>Here are some of the projects I've built, showcasing my skills from front-end design to back-end logic.</p>
+</div>
        <div class="projects-container">
   
   <div class="project-card">
@@ -699,6 +732,7 @@
 
 </body>
 </html>
+
 
 
 
